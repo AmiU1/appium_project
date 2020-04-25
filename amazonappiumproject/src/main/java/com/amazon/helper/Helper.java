@@ -2,16 +2,17 @@ package com.amazon.helper;
 
 
 
+import java.util.HashMap;
+
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.lang.Object;
+
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
+
 //
 //import static io.appium.java_client.touch.offset.PointOption.point;
 //import static java.time.Duration.ofMillis;
@@ -77,10 +78,38 @@ public class Helper {
 
 	}
 	
-	public MobileElement scrollToAnElementByIndex() {
-	return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
+	public MobileElement scrollToAnElement() {
+		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
     ".scrollIntoView(new UiSelector().textContains(\"Samsung UN65RU7300FXZA Curved\"));"));
 	}
 	
-
+//	public void swipetToBottom()
+//	{
+//		
+//		Dimension dim = Controller.instance.driver.manage().window().getSize();
+//		int height = dim.getHeight();
+//		int width = dim.getWidth();
+//		int x = width/2;
+//		int top_y = (int)(height*0.80);
+//		int bottom_y = (int)(height*0.20);
+//		System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
+//		TouchAction ts = new TouchAction(Controller.instance.driver);
+//		ts.press(x, top_y).moveTo(x, bottom_y).release().perform();
+//}
+	
+	public MobileElement scrollToBottom()
+	{
+		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
+			    ".scrollIntoView(new UiSelector().textContains(\"Secure transaction\"));"));
+    }
+	
+	public MobileElement scrollToPlaceOrder()
+	{
+		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
+			    ".scrollIntoView(new UiSelector().textContains(\"Estimated delivery\"));"));
+    }
+	
+	
+	
+	
 }

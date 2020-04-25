@@ -8,6 +8,10 @@ import com.amazon.pages.HomePage;
 import com.amazon.pages.HomePageClass;
 import com.amazon.pages.LoginPage;
 import com.amazon.pages.LoginPageClass;
+import com.amazon.pages.PaymentsPage;
+import com.amazon.pages.PaymentsPageClass;
+import com.amazon.pages.ProductPage;
+import com.amazon.pages.ProductPageClass;
 
 
 
@@ -15,8 +19,9 @@ import com.amazon.pages.LoginPageClass;
 public class BaseTestClass extends BaseClass {
 
 	protected LoginPage loginPage;
-	protected HomePage homePage;
-	
+	protected HomePage 	homePage;
+	protected ProductPage  productPage;
+	protected PaymentsPage  paymentPage;
 
 	@BeforeSuite
 	public void setUp() throws Exception {
@@ -25,6 +30,8 @@ public class BaseTestClass extends BaseClass {
 		case ANDROID:
 		loginPage = new LoginPageClass(driver());
 		homePage = new  HomePageClass(driver());
+		productPage = new ProductPageClass(driver());
+		paymentPage = new PaymentsPageClass(driver());
 		break;
 
 		}

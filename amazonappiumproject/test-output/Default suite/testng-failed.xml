@@ -6,6 +6,8 @@
       <class name="com.amazon.tests.TestAmazonFlow">
         <methods>
           <include name="setUp"/>
+          <include name="verifyPaymentPageTest"/>
+          <include name="verifyProductPageTest"/>
           <include name="tearDown"/>
           <include name="verifyHomePageTest"/>
         </methods>

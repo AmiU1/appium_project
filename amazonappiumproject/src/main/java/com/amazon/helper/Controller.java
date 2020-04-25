@@ -30,11 +30,8 @@ public class Controller {
 		case ANDROID:
 			File classpathRoot = new File(System.getProperty("user.dir"));
 			File appDir = new File(classpathRoot, "/app/Android");
-			File app = new File(appDir, "Amazon_shopping.apk");
-		//	File app = new File(appDir, "Amazon Shopping_in.amazon.mShop.android.shopping.apk");
+			File app = new File(appDir, "Amazon_shopping.apk");	
 			DesiredCapabilities capabilities = new DesiredCapabilities();
-//			capabilities.setCapability("no-reset", true);
-		//	capabilities.setCapability("full-reset", false);
 			capabilities.setCapability("platformName", "Android");
 			capabilities.setCapability("deviceName", "Pixel_XL_API_28");
 			capabilities.setCapability("app", app.getAbsolutePath());
