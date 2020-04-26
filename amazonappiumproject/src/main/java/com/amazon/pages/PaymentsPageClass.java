@@ -7,11 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import com.amazon.helper.Controller;
 import com.amazon.helper.Helper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import utils.readJson;
 
 public class PaymentsPageClass extends Helper implements PaymentsPage {
 	
@@ -26,7 +28,10 @@ public class PaymentsPageClass extends Helper implements PaymentsPage {
 	
 	@FindBys(@FindBy(xpath="//*[@resource-id='spc-orders']//android.view.View"))
     public List<MobileElement> AllData;
-
+	
+	@FindBy(xpath = "(//android.view.View[@text='Important message']")
+	public MobileElement label_identifier;
+	
 	
 	
 	public PaymentsPageClass(AppiumDriver<?> driver) {
@@ -37,8 +42,9 @@ public class PaymentsPageClass extends Helper implements PaymentsPage {
 	public void paymentPageTest() throws InterruptedException {
 		try {
 		logger.info("Verifying payment page");
-		Thread.sleep(7000);
-		scrollToPlaceOrder();
+		Thread.sleep(4000);
+		Assert.assertEquals(true, isPageLoaded(label_identifier));
+		scroll(readJson.jsonInstance.readJsonData("scrollIdenifier_paymentpage"));
 		Thread.sleep(4000);
 		Assert.assertEquals(checkout_description.getText(),product.title);
 		Assert.assertEquals(checkout_price.getText(),product.price);
@@ -46,9 +52,9 @@ public class PaymentsPageClass extends Helper implements PaymentsPage {
 		}
 		catch(Exception e)
 		{
+				testContext.setStatus(ITestResult.FAILURE);
 				logger.error("Couldnt verify loginPage due to :"+e.getMessage());
 				Assert.fail();
-				Controller.instance.stop();
 		}
 		
 	}

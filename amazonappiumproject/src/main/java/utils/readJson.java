@@ -5,6 +5,7 @@ import java.io.FileReader;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.amazon.helper.Controller;
 import com.amazon.helper.Helper;
 
 /*
@@ -12,6 +13,8 @@ this class will read json properties based on the key passed in the method
  
 */
 public class readJson extends Helper {
+	
+	public static readJson jsonInstance = new readJson();
 
 	public String readJsonData(String data)
 	{

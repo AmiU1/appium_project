@@ -5,7 +5,6 @@ package com.amazon.pages;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
-
 import com.amazon.helper.Controller;
 import com.amazon.helper.Helper;
 import io.appium.java_client.AppiumDriver;
@@ -55,8 +54,10 @@ public class LoginPageClass extends Helper implements LoginPage {
 			logger.info("Verifying loginpage");
 			Thread.sleep(2000);
 			waitTillElementVisiblity(signInSkipButton);
+			if(isVisible(signInButton))
+			{
 			clickElement(signInSkipButton);
-		
+			}
 //			waitTillElementVisiblity(emailLogin);
 //			inputString(emailLogin, userName);
 //			waitTillElementVisiblity(continueButton);

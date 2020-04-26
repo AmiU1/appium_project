@@ -1,5 +1,9 @@
 {
 "tv" :"65 inch tv",
 "userName" :"kumar.amithe90@gmail.com",
-"passWord" :"xxxxxx"
+"passWord" :"xxxxxx",
+"scrollIdenifier_homepage" :"Best Seller",
+"scrollIdenifier_productpage" :"In Stock.",
+"scrollIdenifier_paymentpage" :"Sold by: Amazon.com Services LLC"
+
 }

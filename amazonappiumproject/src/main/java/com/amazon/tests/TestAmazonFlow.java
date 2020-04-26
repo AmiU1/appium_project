@@ -10,11 +10,7 @@ this class is the main class which has all the test methods which will run in se
 
 public class TestAmazonFlow extends BaseTestClass {
 	
-	
-	//static Logger log = Logger.getLogger(TestAmazonFlow.class.getName());
-//	private String userEmail = "kumar.amithe90@gmail.com";
-//	private String userPassword = "justrock1";
-		
+			
 //	@Test(priority=1)
 //	public void verifyLogin() throws InterruptedException {
 //		log.info("Executing Login");
@@ -24,7 +20,7 @@ public class TestAmazonFlow extends BaseTestClass {
 	
 	@Test(priority=1)
 	
-	public void verifyHomePageTest() throws InterruptedException, AWTException  {
+	public void  verifyHomePageTest() throws InterruptedException, AWTException  {
 		homePage.homePageTest();
 	}
 	

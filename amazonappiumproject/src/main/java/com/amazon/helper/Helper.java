@@ -5,9 +5,9 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
-
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 
 /*
 this class contains all the required functions to perform different actions on the app
@@ -18,8 +18,10 @@ public class Helper {
 	
 	public static Logger logger = LogManager.getLogger();
 	public static ITestResult testContext;
-
-	//wait for maximum 60 seconds before any operation
+	public MobileElement tempElement;
+	public int Xcoordinate=0;
+	public int Ycoordinate=0;
+	
 	WebDriverWait wait = new WebDriverWait(Controller.instance.driver, 60);
 
 	protected String getPageSource() {
@@ -71,30 +73,33 @@ public class Helper {
 
 	}
 	
-	public void waitTillElementVisiblity(MobileElement mobileElement) {
+	protected void waitTillElementVisiblity(MobileElement mobileElement) {
 		wait.until(ExpectedConditions.visibilityOf(mobileElement));
 
 	}
 	
-	public MobileElement scrollToAnElement() {
+	protected MobileElement scrollIntoView() {
 		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
     ".scrollIntoView(new UiSelector().textContains(\"Samsung UN65RU7300FXZA Curved\"));"));
 	}
 	
-
-	public MobileElement scrollToBottom()
+	//check if page loaded
+	public boolean isPageLoaded(MobileElement mobileElement) {
+		return isVisible(mobileElement);
+	}	
+	
+	public void Tap()
 	{
-		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
-			    ".scrollIntoView(new UiSelector().textContains(\"Secure transaction\"));"));
-    }
-	
-	public MobileElement scrollToPlaceOrder()
-	{
-		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
-			    ".scrollIntoView(new UiSelector().textContains(\"Quantity\"));"));
-    }
-	
-	
+		TouchAction a2 = new TouchAction(Controller.instance.driver);
+		Xcoordinate=tempElement.getLocation().getX();
+		Ycoordinate=tempElement.getLocation().getY();
+		a2.tap(tempElement.getLocation().getX(),tempElement.getLocation().getY()).perform();
+	}
+	//scroll to element 
+	public void scroll(String str) {
+		tempElement= (MobileElement) Controller.instance.driver
+                .findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+ str + "\").instance(0))"));
+	}
 	
 	
 	
