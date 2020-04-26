@@ -1,6 +1,7 @@
 package com.amazon.pages;
 
 import java.awt.AWTException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -49,7 +50,8 @@ public class HomePageClass extends Helper implements HomePage {
 			Thread.sleep(4000);
 			scrollToAnElement();
 			Thread.sleep(4000);
-			clickElement(selectTv);
+			scrollToAnElement().click();
+		//	clickElement(selectTv);
 			Thread.sleep(4000);
 		
 		}

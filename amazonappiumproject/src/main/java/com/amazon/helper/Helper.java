@@ -82,7 +82,7 @@ public class Helper {
 	public MobileElement scrollToPlaceOrder()
 	{
 		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
-			    ".scrollIntoView(new UiSelector().textContains(\"Estimated delivery\"));"));
+			    ".scrollIntoView(new UiSelector().textContains(\"Shipment details\"));"));
     }
 	
 	

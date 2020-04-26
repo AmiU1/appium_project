@@ -56,9 +56,9 @@ public class ProductPageClass extends Helper implements ProductPage {
 		System.out.println(price);
 		clickElement(buyNow);
 		Thread.sleep(5000);
-		clickElement(selectAaddress);
+	//	clickElement(selectAaddress);
 		Thread.sleep(2000);
-		clickElement(deliverToThisAddress);
+	//	clickElement(deliverToThisAddress);
 		Thread.sleep(3000);
 		clickElement(continueButton);
 		
