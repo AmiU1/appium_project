@@ -1,16 +1,12 @@
 package com.amazon.pages;
 
 import java.util.List;
-
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
 import com.amazon.helper.Controller;
 import com.amazon.helper.Helper;
-import com.amazon.pages.ProductPageClass;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;

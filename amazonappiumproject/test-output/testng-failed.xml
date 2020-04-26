@@ -9,7 +9,6 @@
           <include name="verifyPaymentPageTest"/>
           <include name="verifyProductPageTest"/>
           <include name="tearDown"/>
-          <include name="verifyHomePageTest"/>
         </methods>
       </class> <!-- com.amazon.tests.TestAmazonFlow -->
     </classes>

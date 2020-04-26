@@ -47,9 +47,10 @@ public class HomePageClass extends Helper implements HomePage {
 			Thread.sleep(3000);
 			clickElement(selectListTv);
 			Thread.sleep(4000);
-			scrollToAnElement().click();
+			scrollToAnElement();
 			Thread.sleep(4000);
 			clickElement(selectTv);
+			Thread.sleep(4000);
 		
 		}
 

@@ -2,9 +2,7 @@ package com.amazon.pages;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.amazon.helper.Helper;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -29,13 +27,13 @@ public class ProductPageClass extends Helper implements ProductPage {
 	@FindBy(xpath = "//*[@resource-id='buyNow']")
 	public MobileElement buyNow;
 	
-	@FindBy(xpath = "//*[@resource-id='a-autoid-3-announce']")
+	@FindBy(xpath = "(//android.view.View[@index='2'])[2]")
 	public MobileElement deliverToThisAddress;
 	
 	@FindBy(xpath = "(//android.view.View//android.widget.Button)[1]")
 	public MobileElement continueButton;
 	
-	@FindBy(xpath = "(//android.view.View[@index='2'])[2]")
+	@FindBy(xpath = "(//*[@resource-id='address-select']//android.view.View[3]//android.view.View[1])[1]")
 	public MobileElement selectAaddress;
 		
 	

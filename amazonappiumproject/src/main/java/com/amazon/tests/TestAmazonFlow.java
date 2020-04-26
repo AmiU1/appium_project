@@ -2,8 +2,7 @@ package com.amazon.tests;
 
 import java.awt.AWTException;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.testng.annotations.Test;
 
 

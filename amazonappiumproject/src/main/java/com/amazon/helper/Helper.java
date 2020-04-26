@@ -2,26 +2,15 @@ package com.amazon.helper;
 
 
 
-import java.util.HashMap;
-
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 
-//
-//import static io.appium.java_client.touch.offset.PointOption.point;
-//import static java.time.Duration.ofMillis;
-//import static java.time.Duration.ofSeconds;
-//import static io.appium.java_client.touch.WaitOptions.waitOptions;
 
 public class Helper {
 
-	//wait for maximum 30 seconds before any operation
+	//wait for maximum 60 seconds before any operation
 	WebDriverWait wait = new WebDriverWait(Controller.instance.driver, 60);
 
 	protected String getPageSource() {
@@ -83,20 +72,7 @@ public class Helper {
     ".scrollIntoView(new UiSelector().textContains(\"Samsung UN65RU7300FXZA Curved\"));"));
 	}
 	
-//	public void swipetToBottom()
-//	{
-//		
-//		Dimension dim = Controller.instance.driver.manage().window().getSize();
-//		int height = dim.getHeight();
-//		int width = dim.getWidth();
-//		int x = width/2;
-//		int top_y = (int)(height*0.80);
-//		int bottom_y = (int)(height*0.20);
-//		System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
-//		TouchAction ts = new TouchAction(Controller.instance.driver);
-//		ts.press(x, top_y).moveTo(x, bottom_y).release().perform();
-//}
-	
+
 	public MobileElement scrollToBottom()
 	{
 		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
