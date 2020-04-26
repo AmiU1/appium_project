@@ -1,11 +1,12 @@
 package com.amazon.tests;
 
 import java.awt.AWTException;
-
-
 import org.testng.annotations.Test;
 
-
+/*
+this class is the main class which has all the test methods which will run in sequence using priority of testNG
+ 
+*/
 
 public class TestAmazonFlow extends BaseTestClass {
 	

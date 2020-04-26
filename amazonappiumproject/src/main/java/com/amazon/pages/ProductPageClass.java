@@ -1,14 +1,19 @@
 package com.amazon.pages;
 
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.ITestResult;
+
+import com.amazon.helper.Controller;
 import com.amazon.helper.Helper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class ProductPageClass extends Helper implements ProductPage {
-
+	
 	public String title="";
 	public String price="";
 	
@@ -22,8 +27,7 @@ public class ProductPageClass extends Helper implements ProductPage {
 	@FindBy(xpath = "//*[@resource-id='newPitchPriceWrapper_feature_div']//android.view.View[3]")
 	public MobileElement tv_Decimalprice;
 	
-	
-	
+		
 	@FindBy(xpath = "//*[@resource-id='buyNow']")
 	public MobileElement buyNow;
 	
@@ -45,22 +49,31 @@ public class ProductPageClass extends Helper implements ProductPage {
 		}
 	
 	public void productPageTest() throws InterruptedException {
+		try {
+		logger.info("Verifying product page");
 		Thread.sleep(7000);
 		waitTillElementVisiblity(feature_title);
 		title=feature_title.getText();
 		scrollToBottom();
 		Thread.sleep(3000);
-		System.out.println("-------------scroll------------");
 		price="$".concat(tv_price.getText()).concat("."+tv_Decimalprice.getText());
 		price=price.replaceAll(" ","");
 		System.out.println(price);
 		clickElement(buyNow);
 		Thread.sleep(5000);
 	//	clickElement(selectAaddress);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 	//	clickElement(deliverToThisAddress);
-		Thread.sleep(3000);
+	//	Thread.sleep(3000);
 		clickElement(continueButton);
+		logger.info("tested product page successfully");
+		}
+		catch(Exception e)
+		{
+			testContext.setStatus(ITestResult.FAILURE);
+			logger.error("Couldnt verify product page due to :"+e.getMessage());
+			Controller.instance.stop();
+		}
 		
 		
 	}

@@ -13,7 +13,10 @@ import com.amazon.pages.PaymentsPageClass;
 import com.amazon.pages.ProductPage;
 import com.amazon.pages.ProductPageClass;
 
-
+/*
+this class create new instances of the appium server and creates objects for the page classes
+ 
+*/
 
 
 public class BaseTestClass extends BaseClass {
@@ -39,7 +42,7 @@ public class BaseTestClass extends BaseClass {
 
 	@AfterSuite
 	public void tearDown() {
-		//Controller.instance.stop();
+		Controller.instance.stop();
 	}
 }
 

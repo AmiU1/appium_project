@@ -4,12 +4,15 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
+/*
+ this class is controller class which has all the necessary setups and configurations required to start the 
+ appium server with capabilities.
+  
+ */
 
 public class Controller {
 

@@ -1,6 +1,8 @@
 package com.amazon.pages;
 
 import java.util.List;
+
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
@@ -12,7 +14,6 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class PaymentsPageClass extends Helper implements PaymentsPage {
-	
 	
 	ProductPageClass product= new ProductPageClass(Controller.instance.driver);
 	
@@ -28,19 +29,27 @@ public class PaymentsPageClass extends Helper implements PaymentsPage {
 
 	
 	
-	
 	public PaymentsPageClass(AppiumDriver<?> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 			 
 		}
 	
 	public void paymentPageTest() throws InterruptedException {
+		try {
+		logger.info("Verifying payment page");
 		Thread.sleep(7000);
 		scrollToPlaceOrder();
 		Thread.sleep(4000);
 		Assert.assertEquals(checkout_description.getText(),product.title);
 		Assert.assertEquals(checkout_price.getText(),product.price);
-		
+		logger.info("Verified payment page successfully");
+		}
+		catch(Exception e)
+		{
+				logger.error("Couldnt verify loginPage due to :"+e.getMessage());
+				Assert.fail();
+				Controller.instance.stop();
+		}
 		
 	}
 

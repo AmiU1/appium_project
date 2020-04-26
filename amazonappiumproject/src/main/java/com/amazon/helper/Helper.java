@@ -1,14 +1,23 @@
 package com.amazon.helper;
 
-
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
+
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 
+/*
+this class contains all the required functions to perform different actions on the app
+ 
+*/
 
 public class Helper {
+	
+	public static Logger logger = LogManager.getLogger();
+	public static ITestResult testContext;
 
 	//wait for maximum 60 seconds before any operation
 	WebDriverWait wait = new WebDriverWait(Controller.instance.driver, 60);
@@ -82,8 +91,9 @@ public class Helper {
 	public MobileElement scrollToPlaceOrder()
 	{
 		return(MobileElement) Controller.instance.driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
-			    ".scrollIntoView(new UiSelector().textContains(\"Shipment details\"));"));
+			    ".scrollIntoView(new UiSelector().textContains(\"Quantity\"));"));
     }
+	
 	
 	
 	

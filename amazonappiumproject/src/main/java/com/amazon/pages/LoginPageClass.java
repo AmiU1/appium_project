@@ -1,8 +1,12 @@
 package com.amazon.pages;
 
 
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.ITestResult;
+
+import com.amazon.helper.Controller;
 import com.amazon.helper.Helper;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -14,7 +18,6 @@ import com.amazon.pages.LoginPage;
 public class LoginPageClass extends Helper implements LoginPage {
 	
 	
-			
 
 	@FindBy(id = "com.amazon.mShop.android.shopping:id/sign_in_button")
 	public MobileElement signInButton;
@@ -48,7 +51,8 @@ public class LoginPageClass extends Helper implements LoginPage {
 	public void loginToAmazonApp(String userName, String passWord) throws InterruptedException {
 
 		{
-			
+			try {
+			logger.info("Verifying loginpage");
 			Thread.sleep(2000);
 			waitTillElementVisiblity(signInSkipButton);
 			clickElement(signInSkipButton);
@@ -61,7 +65,14 @@ public class LoginPageClass extends Helper implements LoginPage {
 //			inputString(password, passWord);
 //			waitTillElementVisible(signIn);
 //			clickElement(signIn);
-//			
+			logger.info("Verified loginpage successfully");
+			}
+			catch(Exception e)
+			{
+				testContext.setStatus(ITestResult.FAILURE);
+				logger.error("Couldnt verify loginPage due to :"+e.getMessage());
+				Controller.instance.stop();
+			}
 		}
 	}
 
