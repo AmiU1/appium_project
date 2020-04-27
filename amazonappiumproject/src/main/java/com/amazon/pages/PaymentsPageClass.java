@@ -15,10 +15,9 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import utils.readJson;
 
-public class PaymentsPageClass extends Helper implements PaymentsPage {
+public  class PaymentsPageClass extends Helper  {
 	
-	ProductPageClass product= new ProductPageClass(Controller.instance.driver);
-	
+
 	
 	@FindBy(xpath = "(//*[@resource-id='spc-orders']//android.view.View[@index='3'])[3]")
 	public MobileElement checkout_description;
@@ -38,16 +37,16 @@ public class PaymentsPageClass extends Helper implements PaymentsPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 			 
 		}
-	
-	public void paymentPageTest() throws InterruptedException {
+	//lambda expression calling interface PaymentPage
+		public PaymentsPage payment = () -> {
 		try {
 		logger.info("Verifying payment page");
 		Thread.sleep(4000);
 		Assert.assertEquals(true, isPageLoaded(label_identifier));
 		scroll(readJson.jsonInstance.readJsonData("scrollIdenifier_paymentpage"));
 		Thread.sleep(4000);
-		Assert.assertEquals(checkout_description.getText(),product.title);
-		Assert.assertEquals(checkout_price.getText(),product.price);
+		Assert.assertEquals(checkout_description.getText(),ProductPageClass.title);
+		Assert.assertEquals(checkout_price.getText(),ProductPageClass.price);
 		logger.info("Verified payment page successfully");
 		}
 		catch(Exception e)
@@ -57,7 +56,7 @@ public class PaymentsPageClass extends Helper implements PaymentsPage {
 				Assert.fail();
 		}
 		
-	}
+	};
 
 
 }

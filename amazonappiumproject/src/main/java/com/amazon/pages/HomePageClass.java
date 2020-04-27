@@ -1,6 +1,6 @@
 package com.amazon.pages;
 
-import java.awt.AWTException;
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -14,7 +14,7 @@ import io.appium.java_client.pagefactory.*;
 import utils.readJson;
 
 
-public class HomePageClass extends Helper implements HomePage {
+public  class HomePageClass extends Helper   {
 		
 		
 	ITestResult testContext;
@@ -33,16 +33,16 @@ public class HomePageClass extends Helper implements HomePage {
 	
 	
 
-		public HomePageClass(AppiumDriver<?> driver) {
+		 public HomePageClass(AppiumDriver<?> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 			 
 		}
-		
-		
-		public void homePageTest() throws InterruptedException,AWTException {
+			
+			public HomePage home = () -> {
+		//public void homePageTest() throws InterruptedException,AWTException {
 			try {
 			logger.info("Verifying homepage");
-			Thread.sleep(5000);
+			Thread.sleep(7000);
 			Assert.assertEquals(true, isPageLoaded(search));
 			waitTillElementVisiblity(search);
 			clickElement(search);	
@@ -66,10 +66,14 @@ public class HomePageClass extends Helper implements HomePage {
 				e.printStackTrace();
 				testContext.setStatus(ITestResult.FAILURE);
 				Controller.instance.stop();
+				logger.error("Couldnt validate homepage");
 				
-			
 			}
 		
-		}
+		};
+		
+
+
+
 
 }

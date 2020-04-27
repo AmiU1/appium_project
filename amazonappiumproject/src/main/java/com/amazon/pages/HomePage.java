@@ -1,9 +1,10 @@
 package com.amazon.pages;
 
-import java.awt.AWTException;
 
+
+@FunctionalInterface
 public interface HomePage {
-	public void homePageTest() throws InterruptedException, AWTException;
+	void homePageTest();
 
 	
 }

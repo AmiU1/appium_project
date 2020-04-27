@@ -11,10 +11,10 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import utils.readJson;
 
-public class ProductPageClass extends Helper implements ProductPage {
+public class ProductPageClass extends Helper  {
 	 
-	public String title="";
-	public String price="";
+	public static String title="";
+	public static String price="";
 	
 	
 	@FindBy(xpath = "//*[@resource-id='title_feature_div']//android.view.View")
@@ -47,8 +47,8 @@ public class ProductPageClass extends Helper implements ProductPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver),this);
 			 
 		}
-	
-	public void productPageTest() throws InterruptedException {
+		//lambda expression calling interface ProductPage
+		public ProductPage products = () -> {
 		try {
 		logger.info("Verifying product page");
 		Thread.sleep(7000);
@@ -79,6 +79,6 @@ public class ProductPageClass extends Helper implements ProductPage {
 		}
 		
 		
-	}
+	};
 
 }

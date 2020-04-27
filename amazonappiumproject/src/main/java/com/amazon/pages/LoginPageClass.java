@@ -14,7 +14,7 @@ import com.amazon.pages.LoginPage;
 
 
 
-public class LoginPageClass extends Helper implements LoginPage {
+public  class LoginPageClass extends Helper  {
 	
 	
 
@@ -46,10 +46,7 @@ public class LoginPageClass extends Helper implements LoginPage {
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	
-	public void loginToAmazonApp(String userName, String passWord) throws InterruptedException {
-
-		{
+			public LoginPage login = (String userName, String passWord) -> {
 			try {
 			logger.info("Verifying loginpage");
 			Thread.sleep(2000);
@@ -70,12 +67,13 @@ public class LoginPageClass extends Helper implements LoginPage {
 			}
 			catch(Exception e)
 			{
+				
 				testContext.setStatus(ITestResult.FAILURE);
 				logger.error("Couldnt verify loginPage due to :"+e.getMessage());
 				Controller.instance.stop();
 			}
-		}
-	}
+		
+	};
 
 	
 

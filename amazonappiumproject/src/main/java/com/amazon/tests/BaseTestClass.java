@@ -19,12 +19,12 @@ this class create new instances of the appium server and creates objects for the
 */
 
 
-public class BaseTestClass extends BaseClass {
+public abstract class BaseTestClass extends BaseClass {
 
-	protected LoginPage loginPage;
-	protected HomePage 	homePage;
-	protected ProductPage  productPage;
-	protected PaymentsPage  paymentPage;
+	protected LoginPageClass loginPage;
+	protected HomePageClass 	homePage;
+	protected ProductPageClass  productPage;
+	protected PaymentsPageClass  paymentPage;
 
 	@BeforeSuite
 	public void setUp() throws Exception {
@@ -32,9 +32,9 @@ public class BaseTestClass extends BaseClass {
 		switch (Controller.executionOS) {
 		case ANDROID:
 		loginPage = new LoginPageClass(driver());
-		homePage = new  HomePageClass(driver());
-		productPage = new ProductPageClass(driver());
+    	productPage = new ProductPageClass(driver());
 		paymentPage = new PaymentsPageClass(driver());
+		homePage = new  HomePageClass(driver());
 		break;
 
 		}
